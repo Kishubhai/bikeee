@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Bike"
         tools:targetApi="31">
         <activity
+            android:name=".admin.bikePhotos"
+            android:exported="false" />
+        <activity
+            android:name=".admin.eKyc"
+            android:exported="false" />
+        <activity
+            android:name=".admin.bikeDeatails"
+            android:exported="false" />
+        <activity
+            android:name=".admin.personDetails"
+            android:exported="false" />
+        <activity
+            android:name=".admin.homeAdmin"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
