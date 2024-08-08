@@ -57,7 +57,7 @@
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
+            android:id="@+id/adminButton"
             android:background="#1C9FDD"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
