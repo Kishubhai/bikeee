@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,19 +16,19 @@
         android:theme="@style/Theme.Bike"
         tools:targetApi="31">
         <activity
-            android:name=".admin.bikePhotos"
+            android:name=".ui.main.admin.bikePhotos"
             android:exported="false" />
         <activity
-            android:name=".admin.eKyc"
+            android:name=".ui.main.admin.eKyc"
             android:exported="false" />
         <activity
-            android:name=".admin.bikeDeatails"
+            android:name=".ui.main.admin.bikeDeatails"
             android:exported="false" />
         <activity
-            android:name=".admin.personDetails"
+            android:name=".ui.main.admin.personDetails"
             android:exported="false" />
         <activity
-            android:name=".admin.homeAdmin"
+            android:name=".ui.main.admin.homeAdmin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

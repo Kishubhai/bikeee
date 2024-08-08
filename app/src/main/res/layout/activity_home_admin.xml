@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.homeAdmin">
+    tools:context=".ui.main.admin.homeAdmin">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_marginTop="16dp"
@@ -55,13 +55,14 @@
             android:layout_marginStart="20dp"
             app:cardCornerRadius="8dp"
             android:layout_weight="1"
-            android:id="@+id/addGalleryImage">
+            android:id="@+id/addBikeDetails">
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_margin="5dp"
                 android:gravity="center"
+
                 android:weightSum="2">
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
@@ -99,7 +100,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="20dp"
             app:cardCornerRadius="8dp"
-            android:id="@+id/addNotice">
+            android:id="@+id/kyc">
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
