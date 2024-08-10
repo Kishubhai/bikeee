@@ -7,9 +7,5 @@ import com.example.app.data.repository.ImageRepository
 
 class BikePhotosViewModel(private val repository: ImageRepository) : ViewModel() {
 
-    val images: LiveData<List<Uri>> = repository.getImages()
 
-    fun addImage(uri: Uri) {
-        repository.addImage(uri)
-    }
 }

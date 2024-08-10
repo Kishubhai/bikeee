@@ -25,7 +25,7 @@ class homeAdmin : AppCompatActivity() {
         startActivity(intent1)}
 
         eKycc.setOnClickListener {
-        val intent2 = Intent(this, eKyc::class.java)
+        val intent2 = Intent(this, EKyc::class.java)
         startActivity(intent2)}
 
         bikeDetails.setOnClickListener {
@@ -33,7 +33,7 @@ class homeAdmin : AppCompatActivity() {
         startActivity(intent3)}
 
         bikePhotoss.setOnClickListener {
-        val intent4 = Intent(this, bikePhotos::class.java)
+        val intent4 = Intent(this, BikePhotos::class.java)
         startActivity(intent4)}
 
 
