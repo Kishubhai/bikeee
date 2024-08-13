@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -52,5 +53,16 @@ dependencies {
     implementation ("androidx.fragment:fragment-ktx:1.8.2")
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     implementation ("androidx.viewpager2:viewpager2:1.1.0")
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation("com.google.firebase:firebase-analytics")
+
+    implementation ("com.google.firebase:firebase-database:21.0.0")
+    implementation ("com.google.firebase:firebase-core:21.1.1")
 
 }
