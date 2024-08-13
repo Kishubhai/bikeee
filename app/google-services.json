@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "676294039061",
+    "project_id": "face-detect-7956b",
+    "storage_bucket": "face-detect-7956b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676294039061:android:d684d83109373ed0c5601c",
+        "android_client_info": {
+          "package_name": "com.example.bike"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676294039061-2npgvarcdcmlr6hkf2mvv7k9nshfna4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo52KJ5LbY10A52bgmRWa4YUalSq6pYlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676294039061-2npgvarcdcmlr6hkf2mvv7k9nshfna4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
