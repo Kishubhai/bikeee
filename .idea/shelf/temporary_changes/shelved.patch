@@ -1,0 +1,154 @@
+Index: app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModel.kt b/app/src/main/java/com/example/bike/ui/main/admin/ViewModel/BikePhotosViewModel.kt
+rename from app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModel.kt
+rename to app/src/main/java/com/example/bike/ui/main/admin/ViewModel/BikePhotosViewModel.kt
+--- a/app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModel.kt	(revision 4c57391d7221c50058d2734a21fd94fe58fb993e)
++++ b/app/src/main/java/com/example/bike/ui/main/admin/ViewModel/BikePhotosViewModel.kt	(date 1723209079917)
+@@ -1,4 +1,4 @@
+-package com.example.bike.ui.main.admin
++package com.example.bike.ui.main.admin.ViewModel
+ 
+ import android.net.Uri
+ import androidx.lifecycle.LiveData
+Index: app/src/main/res/layout/activity_bike_photos.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\n\n    <data>\n        <variable\n            name=\"viewModel\"\n            type=\"com.example.bike.ui.main.admin.BikePhotosViewModel\" />\n    </data>\n\n    <RelativeLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\">\n\n        <Button\n            android:id=\"@+id/pick_image_button\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:text=\"Pick Image\"\n            android:layout_centerHorizontal=\"true\"\n            android:layout_marginTop=\"16dp\"\n            android:onClick=\"@{() -> viewModel.pickImage()}\" />\n\n        <androidx.recyclerview.widget.RecyclerView\n            android:id=\"@+id/image_slider\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"300dp\"\n            android:layout_below=\"@id/pick_image_button\"\n            android:layout_marginTop=\"16dp\"\n            app:images=\"@{viewModel.images}\" />\n    </RelativeLayout>\n</layout>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_bike_photos.xml b/app/src/main/res/layout/activity_bike_photos.xml
+--- a/app/src/main/res/layout/activity_bike_photos.xml	(revision 4c57391d7221c50058d2734a21fd94fe58fb993e)
++++ b/app/src/main/res/layout/activity_bike_photos.xml	(date 1723209079903)
+@@ -5,7 +5,7 @@
+     <data>
+         <variable
+             name="viewModel"
+-            type="com.example.bike.ui.main.admin.BikePhotosViewModel" />
++            type="com.example.bike.ui.main.admin.ViewModel.BikePhotosViewModel" />
+     </data>
+ 
+     <RelativeLayout
+Index: app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModelFactory.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.bike.ui.main.admin\n\nimport androidx.lifecycle.ViewModel\nimport androidx.lifecycle.ViewModelProvider\nimport com.example.app.data.repository.ImageRepository\n\nclass BikePhotosViewModelFactory(private val repository: ImageRepository) : ViewModelProvider.Factory {\n    override fun <T : ViewModel> create(modelClass: Class<T>): T {\n        if (modelClass.isAssignableFrom(BikePhotosViewModel::class.java)) {\n            @Suppress(\"UNCHECKED_CAST\")\n            return BikePhotosViewModel(repository) as T\n        }\n        throw IllegalArgumentException(\"Unknown ViewModel class\")\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModelFactory.kt b/app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModelFactory.kt
+--- a/app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModelFactory.kt	(revision 4c57391d7221c50058d2734a21fd94fe58fb993e)
++++ b/app/src/main/java/com/example/bike/ui/main/admin/BikePhotosViewModelFactory.kt	(date 1723209079937)
+@@ -3,6 +3,7 @@
+ import androidx.lifecycle.ViewModel
+ import androidx.lifecycle.ViewModelProvider
+ import com.example.app.data.repository.ImageRepository
++import com.example.bike.ui.main.admin.ViewModel.BikePhotosViewModel
+ 
+ class BikePhotosViewModelFactory(private val repository: ImageRepository) : ViewModelProvider.Factory {
+     override fun <T : ViewModel> create(modelClass: Class<T>): T {
+Index: app/src/main/java/com/example/bike/ui/main/admin/personDetails.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.bike.ui.main.admin\n\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport com.example.bike.R\n\nclass personDetails : AppCompatActivity() {\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_person_details)\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bike/ui/main/admin/personDetails.kt b/app/src/main/java/com/example/bike/ui/main/admin/personDetails.kt
+--- a/app/src/main/java/com/example/bike/ui/main/admin/personDetails.kt	(revision 4c57391d7221c50058d2734a21fd94fe58fb993e)
++++ b/app/src/main/java/com/example/bike/ui/main/admin/personDetails.kt	(date 1723209866240)
+@@ -3,8 +3,12 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+ import com.example.bike.R
++import com.example.bike.ui.main.admin.ViewModel.PersonViewModel
+ 
+ class personDetails : AppCompatActivity() {
++
++    private lateinit var binding: ActivityPer
++    private lateinit var viewModel: PersonViewModel
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_person_details)
+Index: app/src/main/java/com/example/bike/ui/main/admin/bikePhotos.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.bike.ui.main.admin\n\nimport android.app.Activity\nimport android.content.Intent\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport androidx.databinding.DataBindingUtil\nimport androidx.lifecycle.ViewModelProvider\nimport com.example.app.data.repository.ImageRepository\nimport com.example.bike.R\nimport com.example.bike.databinding.ActivityBikePhotosBinding\nimport com.example.bike.ui.adapter.ImageSliderAdapter\n\nclass bikePhotos : AppCompatActivity() {\n\n    private lateinit var binding:ActivityBikePhotosBinding\n\n    private lateinit var viewModel: BikePhotosViewModel\n\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_bike_photos)\n\n        binding = DataBindingUtil.setContentView<ActivityBikePhotosBinding>(this, R.layout.activity_bike_photos)\n        binding.lifecycleOwner = this\n\n        // Initialize ViewModel\n        val repository = ImageRepository()\n        val factory = BikePhotosViewModelFactory(repository)\n        viewModel = ViewModelProvider(this, factory).get(BikePhotosViewModel::class.java)\n        binding.viewModel = viewModel\n\n        val adapter = ImageSliderAdapter(viewModel.images.value ?: emptyList())\n        binding.imageSlider.adapter = adapter\n\n        viewModel.images.observe(this) { images ->\n            adapter.notifyDataSetChanged()\n        }\n\n        binding.pickImageButton.setOnClickListener {\n            pickImageFromGallery()\n        }\n    }\n\n    private fun pickImageFromGallery() {\n        val intent = Intent(Intent.ACTION_PICK)\n        intent.type = \"image/*\"\n        startActivityForResult(intent, REQUEST_IMAGE_PICK)\n    }\n\n    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {\n        super.onActivityResult(requestCode, resultCode, data)\n        if (requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK) {\n            data?.data?.let { uri ->\n                viewModel.addImage(uri)\n            }\n        }\n    }\n\n    companion object {\n        private const val REQUEST_IMAGE_PICK = 1001\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/bike/ui/main/admin/bikePhotos.kt b/app/src/main/java/com/example/bike/ui/main/admin/bikePhotos.kt
+--- a/app/src/main/java/com/example/bike/ui/main/admin/bikePhotos.kt	(revision 4c57391d7221c50058d2734a21fd94fe58fb993e)
++++ b/app/src/main/java/com/example/bike/ui/main/admin/bikePhotos.kt	(date 1723209079927)
+@@ -10,6 +10,7 @@
+ import com.example.bike.R
+ import com.example.bike.databinding.ActivityBikePhotosBinding
+ import com.example.bike.ui.adapter.ImageSliderAdapter
++import com.example.bike.ui.main.admin.ViewModel.BikePhotosViewModel
+ 
+ class bikePhotos : AppCompatActivity() {
+ 
+Index: build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\nplugins {\n    id(\"com.android.application\") version \"8.1.1\" apply false\n    id(\"org.jetbrains.kotlin.android\") version \"1.9.0\" apply false\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle.kts b/build.gradle.kts
+--- a/build.gradle.kts	(revision 4c57391d7221c50058d2734a21fd94fe58fb993e)
++++ b/build.gradle.kts	(date 1723208178743)
+@@ -1,5 +1,6 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
++    id("com.google.gms.google-services") version "4.4.2" apply false
+     id("com.android.application") version "8.1.1" apply false
+     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
+ }
+\ No newline at end of file
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    id(\"com.android.application\")\n    id(\"org.jetbrains.kotlin.android\")\n}\n\nandroid {\n    namespace = \"com.example.bike\"\n    compileSdk = 34\n\n    defaultConfig {\n        applicationId = \"com.example.bike\"\n        minSdk = 24\n        targetSdk = 33\n        versionCode = 1\n        versionName = \"1.0\"\n\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            isMinifyEnabled = false\n            proguardFiles(\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\n                \"proguard-rules.pro\"\n            )\n        }\n    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    kotlinOptions {\n        jvmTarget = \"1.8\"\n    }\n}\n\ndependencies {\n\n    implementation(\"androidx.core:core-ktx:1.9.0\")\n    implementation(\"androidx.appcompat:appcompat:1.7.0\")\n    implementation(\"com.google.android.material:material:1.12.0\")\n    implementation(\"androidx.constraintlayout:constraintlayout:2.1.4\")\n    implementation(\"androidx.databinding:databinding-runtime:8.5.1\")\n    testImplementation(\"junit:junit:4.13.2\")\n    androidTestImplementation(\"androidx.test.ext:junit:1.1.5\")\n    androidTestImplementation(\"androidx.test.espresso:espresso-core:3.5.1\")\n\n    implementation (\"androidx.activity:activity-ktx:1.9.1\")\n    implementation (\"androidx.fragment:fragment-ktx:1.8.2\")\n    implementation (\"com.github.bumptech.glide:glide:4.13.2\")\n    implementation (\"androidx.viewpager2:viewpager2:1.0.0\")\n\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision 4c57391d7221c50058d2734a21fd94fe58fb993e)
++++ b/app/build.gradle.kts	(date 1723208630843)
+@@ -1,6 +1,7 @@
+ plugins {
+     id("com.android.application")
+     id("org.jetbrains.kotlin.android")
++    id("com.google.gms.google-services")
+ }
+ 
+ android {
+@@ -51,5 +52,22 @@
+     implementation ("com.github.bumptech.glide:glide:4.13.2")
+     implementation ("androidx.viewpager2:viewpager2:1.0.0")
+ 
++    // Import the Firebase BoM
++    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
++
++
++    // TODO: Add the dependencies for Firebase products you want to use
++    // When using the BoM, don't specify versions in Firebase dependencies
++    implementation("com.google.firebase:firebase-analytics")
++
++
++    // Add the dependencies for any other desired Firebase products
++    // https://firebase.google.com/docs/android/setup#available-libraries
++
++    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
++    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.4")
++    implementation ("com.google.firebase:firebase-database-ktx:21.0.0")
++    implementation ("com.google.firebase:firebase-auth-ktx:23.0.0") // If you use Firebase Authentication
++    implementation ("com.google.firebase:firebase-core:21.1.1")
+ 
+ }
+\ No newline at end of file
