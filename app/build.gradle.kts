@@ -19,6 +19,9 @@ android {
     buildFeatures {
         this.dataBinding = true
     }
+    viewBinding{
+        this.enable = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -44,6 +47,8 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.databinding:databinding-runtime:8.5.2")
+    implementation("androidx.activity:activity:1.9.1")
+    implementation("androidx.databinding:databinding-runtime:8.5.2")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
@@ -53,4 +58,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     implementation ("androidx.viewpager2:viewpager2:1.1.0")
 
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    implementation ("androidx.viewpager2:viewpager2:1.1.0")
+
+    implementation ("com.github.qamarelsafadi:CurvedBottomNavigation:0.1.3")
 }

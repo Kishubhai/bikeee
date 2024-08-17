@@ -7,19 +7,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.Extensions.checkAndRequestImagePermission
 import com.example.Extensions.handlePermissionResult
+import com.example.bike.databinding.ActivityBikePhotosBinding
+import com.example.bike.databinding.ActivityMainBinding
 import com.example.bike.ui.main.admin.homeAdmin
+import com.example.bike.ui.main.user.UserMainActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var adminButton: ConstraintLayout
+
+    private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        adminButton = findViewById(R.id.adminButton)
-
-        adminButton.setOnClickListener {
+        binding.c2.setOnClickListener {
             val intent1 = Intent(this, homeAdmin::class.java)
+            startActivity(intent1)
+        }
+
+        binding.bookBikeCard.setOnClickListener {
+            val intent1 = Intent(this, UserMainActivity::class.java)
             startActivity(intent1)
         }
 

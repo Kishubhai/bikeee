@@ -1,19 +1,25 @@
 package com.example.bike.ui.main.admin
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.databinding.adapters.ImageViewBindingAdapter.setImageDrawable
 import androidx.viewpager2.widget.ViewPager2
 import com.example.Constants.KEY_PERMISSION_GRANTED
 import com.example.Constants.PREFS_NAME
 import com.example.Constants.REQUEST_CODE_PICK_IMAGE
+import com.example.Extensions.checkAndRequestImagePermission
+import com.example.Extensions.handlePermissionResult
 import com.example.bike.R
 import com.example.bike.databinding.ActivityBikePhotosBinding
 import com.example.bike.ui.adapter.BikeImagePagerAdapter
@@ -25,13 +31,15 @@ class BikePhotos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBikePhotosBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.pickImageButton.setOnClickListener {
+        binding.pickImageButton.setOnClickListener{
             val sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             val permissionGranted = sharedPreferences.getBoolean(KEY_PERMISSION_GRANTED, false)
-            if (permissionGranted) {
+            if(permissionGranted)
+            {
                 openGallery()
-                // Log.d("Bikee from if", "Permission granted: $permissionGranted")
-            } else {
+               // Log.d("Bikee from if", "Permission granted: $permissionGranted")
+            }
+            else{
                 Toast.makeText(this, "Permission not granted!", Toast.LENGTH_SHORT).show()
             }
         }
